@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class quickSort {
@@ -15,43 +14,34 @@ public class quickSort {
     }
  
     // ham de chia mang thanh 2 phan, su dung phan tu chot (pivot)
-    public int partition(int arr[], int left, int right, int pivot) {
+    public int partition(int arr[], int left, int right) {
+        int pivot = arr[right];
         int leftPointer = left ;
-        int rightPointer = right-1;
- 
+        int rightPointer = right-1;   
         while (true) {
- 
-            while (arr[leftPointer] < pivot) {
+            while (arr[leftPointer] < pivot) 
                 leftPointer++;
-            }
- 
-            while (rightPointer > 0 && arr[rightPointer] >= pivot) {
+            while (rightPointer > 0 && arr[rightPointer] >= pivot) 
                 rightPointer--;
-            }
- 
-            if (leftPointer >= rightPointer) 
-                break;
-             else 
-                swap(arr, leftPointer, rightPointer);
-            
- 
+            if (leftPointer >= rightPointer) break;
+            swap(arr, leftPointer, rightPointer);
         }
  
 
         swap(arr, leftPointer, right);
         System.out.println(Arrays.toString(arr));
+        System.out.println(leftPointer);
         return leftPointer;
     }
  
     // ham sap xep
     public void quickSort(int arr[], int left, int right) {
-        if (right - left <= 0) { // mảng nhỏ hơn 1
+        if (right - left <= 0) { // ngừng đệ quy khi mảng còn 1 phần tử
             return;
         } else {
-            int pivot = arr[right];
-            int partitionPoint = partition(arr, left, right, pivot);
-            quickSort(arr, left, partitionPoint - 1);
-            quickSort(arr, partitionPoint + 1, right);
+            int partitionPoint = partition(arr, left, right); // method để xếp
+            quickSort(arr, left, partitionPoint - 1);  // nó sẽ gọi lại method partition trên để xếp mảng bên trái
+            quickSort(arr, partitionPoint + 1, right);  
         }
     }
  
@@ -59,7 +49,7 @@ public class quickSort {
  
     public static void main(String[] args) {
         // khoi tao mang arr
-        int arr[] = {1, 9,4,87,8,7,6,5,4,3,2,1};
+        int arr[] = {3,1,5,4,8,9,8,7,3,51,1,1,1,1,1};
  
         quickSort sapXepNhanh = new quickSort();
         System.out.println("Mang du lieu dau vao: ");
