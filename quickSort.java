@@ -21,10 +21,12 @@ public class quickSort {
         while (true) {
             while (arr[leftPointer] < pivot) 
                 leftPointer++;
-            while (rightPointer > 0 && arr[rightPointer] >= pivot) 
+            while (rightPointer > left && arr[rightPointer] > pivot) // rightPointer > left là để k trừ tiếp khi đã ở đầu mảng, trừ nữa thành -1 nó lỗi
                 rightPointer--;
             if (leftPointer >= rightPointer) break;
             swap(arr, leftPointer, rightPointer);
+                leftPointer++; // tránh TH = giá trị vs pivot bị đứng cứng ngắt
+                rightPointer--; 
         }
  
 
@@ -49,7 +51,7 @@ public class quickSort {
  
     public static void main(String[] args) {
         // khoi tao mang arr
-        int arr[] = {3,1,5,4,8,9,8,7,3,51,1,1,1,1,1};
+        int arr[] = {1,3,5,4};
  
         quickSort sapXepNhanh = new quickSort();
         System.out.println("Mang du lieu dau vao: ");
