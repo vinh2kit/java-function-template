@@ -1,5 +1,7 @@
-// normal string khá giống với JS mấy cái cơ bản, còn nâng cao thì phải dùng StringBuilder như reverse(),...
-
+/* normal string khá giống với JS mấy cái cơ bản, còn nâng cao thì phải dùng StringBuilder như reverse(),...
+    str.toCharArray() = mảng Char
+        
+*/
 /* StringBuilder/StringBuffer
 append(String str): Thêm chuỗi vào cuối StringBuilder.
 insert(int offset, String str): Chèn chuỗi tại vị trí chỉ định.
