@@ -1,8 +1,8 @@
 // tìm tần số xuất hiện nhiều nhần nhất
 public static int findMode(int[] arr) {
         Map<Integer, Integer> frequencyMap = new HashMap<>();
-        int maxFrequency = 0;
-        int mode = arr[0];
+        int maxFrequency = 0; // tần số cao nhất
+        int mode = arr[0]; // giá trị phần tử có tân số cao nhất
 
         for (int num : arr) {
             int frequency = frequencyMap.getOrDefault(num, 0) + 1;
