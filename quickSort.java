@@ -17,7 +17,7 @@ public class quickSort {
     public int partition(int arr[], int left, int right) {
         int pivot = arr[right];
         int leftPointer = left ;
-        int rightPointer = right-1;   
+        int rightPointer = right-1;   // -1 để bỏ qua pivot
         while (true) {
             while (arr[leftPointer] < pivot) 
                 leftPointer++;
@@ -51,7 +51,7 @@ public class quickSort {
  
     public static void main(String[] args) {
         // khoi tao mang arr
-        int arr[] = {1,3,5,4};
+        int arr[] = {1,3,4,5,1,1,1,1,1,1,1,1};
  
         quickSort sapXepNhanh = new quickSort();
         System.out.println("Mang du lieu dau vao: ");
